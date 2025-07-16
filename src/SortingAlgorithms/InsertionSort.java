@@ -10,7 +10,7 @@ public class InsertionSort {
 
 
 
-        Arrays.sort(arr);
+//        Arrays.sort(arr);
         insertionSort(arr);
 
         printArray(arr);

@@ -3,7 +3,7 @@ package Arrrays;
 public class SubArraySum {
 
     public static void main(String[] args) {
-        int nums[]={-2,-3,4,-1,-2,1,5,-3};
+        int[] nums ={-2,-3,4,-1,-2,1,5,-3};
 
         bruteForceSubArraySum(nums);
 
@@ -13,7 +13,7 @@ public class SubArraySum {
     }
 
 
-    public static  void bruteForceSubArraySum(int nums[])
+    public static  void bruteForceSubArraySum(int[] nums)
     {
         int maxSum=Integer.MIN_VALUE;
 
@@ -42,12 +42,12 @@ public class SubArraySum {
     }
 
 
-    public static void prefixSumMethod(int nums[])
+    public static void prefixSumMethod(int[] nums)
     {
 
         int maxSum=Integer.MIN_VALUE;
 
-        int prefix[]=new int[nums.length];
+        int[] prefix =new int[nums.length];
 
         prefix[0]=nums[0];
 
@@ -59,12 +59,11 @@ public class SubArraySum {
 
         for(int i=0;i<nums.length;i++)
         {
-            int start=i;
             for(int k=i;k<nums.length;k++)
             {
                 int end=k;
 
-                int currSum= start==0?prefix[end]:prefix[end]-prefix[start-1];
+                int currSum= i ==0?prefix[end]:prefix[end]-prefix[i -1];
 
                 if(currSum>maxSum)
                 {
@@ -80,20 +79,19 @@ public class SubArraySum {
 
     }
 
-    public static void kadanes(int nums[])
+    public static void kadanes(int[] nums)
     {
         int maxSum=Integer.MIN_VALUE;
 
         int currSum=0;
 
-        for(int i=0;i<nums.length;i++)
-        {
-            currSum=currSum+nums[i];
+        for (int num : nums) {
+            currSum = currSum + num;
 
 
-            if(currSum<0) currSum=0;
+            if (currSum < 0) currSum = 0;
 
-            if(currSum>maxSum) maxSum=currSum;
+            if (currSum > maxSum) maxSum = currSum;
 
 
         }
